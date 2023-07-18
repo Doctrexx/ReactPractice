@@ -99,32 +99,31 @@ const ListComponent = () => {
 
     // Example: Using useState in a loop
     const renderCounters = () => {
-        const counters = [];
-        for (let i = 0; i < count; i++) {
-            counters.push(<Counter key={i} />);
-        }
-        return counters;
-    };
-
+        // const counters = [];
+        // for (let i = 0; i < count; i++) {
+        //     counters.push(<Counter key={i} />);
+        setCount(count + 1);
+    }
+    // return counters;
     return (
         <div>
             <h2>List Component</h2>
-            <p>Count: {count}</p>
-            <button onClick={() => setCount(count + 1)}>Increment Count</button>
-            {renderCounters()}
+            {/* <p>Count: {count}</p>
+        <button onClick={() => setCount(count + 1)}>Increment Count</button>
+        {renderCounters()} */}
+            <Counter count={count} onClick={renderCounters} />
+            <Counter count={count} onClick={renderCounters} />
         </div>
     );
 };
 
-const Counter = () => {
-    const [counterValue, setCounterValue] = useState(0);
-
+const Counter = ({ count, onClick }) => {
+    // const [counterValue, setCounterValue] = useState(0);
     return (
         <div>
-            <p>Counter Value: {counterValue}</p>
-            <button onClick={() => setCounterValue(counterValue + 1)}>
-                Increment Counter
-            </button>
+            {/* <p>Counter Value: {counterValue}</p> */}
+            {/* <button onClick={() => setCounterValue(counterValue + 1)}>Increment Counter</button> */}
+            <button onClick={onClick}>Counter {count}</button>
         </div>
     );
 };
